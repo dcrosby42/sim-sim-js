@@ -1,0 +1,23 @@
+{
+  "name": "sim_sim_js",
+  "author": "Dave Crosby, Job Vranish",
+  "description": "Croz's port of Job's Simultanous Simulation library",
+  "license": "MIT",
+  "version": "0.0.1",
+  "engine": {
+    "node": "0.10.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-shell": "~0.6.4",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-watch": "~0.6.0",
+    "jasmine-node": "~1.14.2",
+    "grunt-jasmine-node": "~0.2.1",
+    "browserify": "~3.33.0",
+    "coffeeify": "~0.6.0"
+  },
+  "dependencies": {
+    "coffee-script": "~1.7.1"
+  }
+}
