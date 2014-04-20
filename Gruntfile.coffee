@@ -1,5 +1,7 @@
 module.exports = (grunt) ->
 
+
+
   # Project configuration.
   grunt.initConfig
     pkg: '<json:package.json>'
@@ -59,6 +61,11 @@ module.exports = (grunt) ->
         options:
           stdout: true
 
+      npm_publish_build:
+        command: "npm publish build"
+        options:
+          stdout: true
+
       browserify_client:
         command: "node_modules/.bin/browserify -t coffeeify src/client/sim_sim.coffee > build/client/sim_sim.js"
         options:
@@ -78,5 +85,12 @@ module.exports = (grunt) ->
   grunt.registerTask 'test', 'shell:jasmine'
   grunt.registerTask 'wtest', 'shell:jasmine_watch'
 
-  grunt.registerTask 'build', ['shell:clean_build', 'shell:prepare_build', 'shell:browserify_client', 'coffee:server']
+  grunt.registerTask 'build', [
+    'shell:clean_build'
+    'shell:prepare_build'
+    'shell:browserify_client'
+    'coffee:server'
+  ]
+  grunt.registerTask 'publish', ['build', 'shell:npm_publish_build']
+  
 
