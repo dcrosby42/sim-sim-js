@@ -11,10 +11,10 @@
 # turnManager - (default is a new TurnManager)
 # serverMessageFactory - (default is a new ServerMessageFactory)
 createServer = (opts={}) ->
-  TurnManager           = require './turn_manager'
-  ServerMessageFactory  = require './server_message_factory'
-  SyncManager           = require './sync_manager'
-  Server                = require './server'
+  TurnManager           = require './lib/turn_manager'
+  ServerMessageFactory  = require './lib/server_message_factory'
+  SyncManager           = require './lib/sync_manager'
+  Server                = require './lib/server'
   period = opts.period || 100
   adapter = opts.adapter || throw new Error("adapter required")
   turnManager = opts.turnManager || new TurnManager(period)
@@ -25,7 +25,7 @@ createServer = (opts={}) ->
   
 createSocketIOServerAdapter = (socketIO) ->
   throw new Error("socketIO required") unless socketIO
-  SocketIOServerAdapter = require './socket_io_server_adapter'
+  SocketIOServerAdapter = require './lib/socket_io_server_adapter'
   adapter = new SocketIOServerAdapter(socketIO)
   adapter
 
