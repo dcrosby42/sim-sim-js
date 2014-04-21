@@ -1,11 +1,13 @@
 
 createSimulation = (opts={}) ->
   unless opts.adapter
-      throw new error("Cannot build simulation without network adapter, such as SocketIOClientAdapter")
-  # unless opts.worldClass
-  #     throw new Error("Cannot build simulation without worldClass, which must implement interface WorldBase")
+      throw new Error("Cannot build simulation without network adapter config info")
+
   unless opts.world
       throw new Error("Cannot build simulation without an instane of 'world', which must implement interface WorldBase")
+
+  adapter = createAdapter(opts.adapter)
+
   GameEventFactory = require './game_event_factory.coffee'
   ClientMessageFactory = require './client_message_factory.coffee'
   SimulationEventFactory = require './simulation_event_factory.coffee'
@@ -20,7 +22,7 @@ createSimulation = (opts={}) ->
   clientMessageFactory = new ClientMessageFactory()
   simulationEventFactory = new SimulationEventFactory()
   client = new Client(
-    opts.adapter
+    adapter
     gameEventFactory
     clientMessageFactory
     simulationEventFactory
@@ -47,22 +49,32 @@ createSimulation = (opts={}) ->
   )
 
   if callback = opts.spyOnDataIn
-    opts.adapter.on 'ClientAdapter::Packet', (data) ->
+    adapter.on 'ClientAdapter::Packet', (data) ->
       callback(simulation, data)
 
   if callback = opts.spyOnDataOut
-    opts.adapter.on 'ClientAdapter::SendingData', (data) ->
+    adapter.on 'ClientAdapter::SendingData', (data) ->
       callback(simulation, data)
 
   return simulation
 
-createSocketIOClientAdapter = (socketIO) ->
-  SocketIOClientAdapter = require './socket_io_client_adapter.coffee'
-  new SocketIOClientAdapter(socketIO)
 
-createSimulationUsingSocketIO = (opts={}) ->
-  opts.adapter = createSocketIOClientAdapter(opts.socketIO)
-  createSimulation opts
+adapterConstructors = {}
+addAdapterConstructor = (type, constructor) ->
+  adapterConstructors[type] = constructor
+getAdapterConstructor = (type) ->
+  adapterConstructors[type]
+
+createAdapter = (adapterOpts) ->
+  if constructor = adapterConstructors[adapterOpts.type]
+    constructor(adapterOpts.options)
+  else
+    throw new Error("No adapter constructor found for type '#{adapterOpts.type}'")
+
+addAdapterConstructor 'socket_io', (opts) ->
+  SocketIOClientAdapter = require './socket_io_client_adapter.coffee'
+  new SocketIOClientAdapter(opts)
+
 
 #######################################################################
 #
@@ -70,9 +82,10 @@ createSimulationUsingSocketIO = (opts={}) ->
 #
 #######################################################################
 
-exports.create =
-  socketIOSimulation: createSimulationUsingSocketIO
+exports.createSimulation = createSimulation
 
 exports.Util = { fixFloat: require('./fix_float.coffee') }
 
 exports.WorldBase = require('./world_base.coffee')
+
+exports.addAdapter = addAdapterConstructor

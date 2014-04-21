@@ -1,8 +1,14 @@
 EventEmitter = require './event_emitter.coffee'
 
 class SocketIOClientAdapter extends EventEmitter
-  constructor: (@socket) ->
-    throw new Error("A socket.io socket instance is required to build SockedIOClientAdapter") unless @socket
+  constructor: (opts={}) ->
+    @socket = opts.socket or opts.io
+    url = opts.url
+    if url and !@socket
+      socketIO = window.io or throw new Error("Trying to construct SocketIOClientAdapter with URL '#{url}' but cannot find loaded socket.io library via window.io?")
+      @socket = socketIO.connect(url)
+
+    throw new Error("SockedIOClientAdapter: provide 'socket' or 'url' named arguments") unless @socket
     @socket.on 'data', (data) =>
       @emit 'ClientAdapter::Packet', data
     @socket.on 'disconnect', =>
