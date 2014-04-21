@@ -46,6 +46,14 @@ createSimulation = (opts={}) ->
     userEventSerializer
   )
 
+  if callback = opts.spyOnDataIn
+    opts.adapter.on 'ClientAdapter::Packet', (data) ->
+      callback(simulation, data)
+
+  if callback = opts.spyOnDataOut
+    opts.adapter.on 'ClientAdapter::SendingData', (data) ->
+      callback(simulation, data)
+
   return simulation
 
 createSocketIOClientAdapter = (socketIO) ->
