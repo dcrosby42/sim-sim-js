@@ -1,17 +1,21 @@
 EventEmitter = require './event_emitter.coffee'
 
 class Client extends EventEmitter
-  constructor: (@adapter,@gameEventFactory, @clientMessageFactory, @simulationEventFactory) ->
-    @_debugOn = false
+  _reset: ->
     @gameStarted = false
     @clientId = null
     @simulationEventsBuffer = []
     @gameEventsBuffer = []
     @preGameEventsBuffer = []
 
+  constructor: (@adapter,@gameEventFactory, @clientMessageFactory, @simulationEventFactory) ->
+    @_debugOn = false
+    @_reset()
+
     @adapter.on 'ClientAdapter::Disconnected', =>
       @_debug "rec'd ClientAdapter::Disconnected"
       @gameEventsBuffer.push @gameEventFactory.disconnected()
+      @_reset()
 
     @adapter.on 'ClientAdapter::Packet', (data) =>
       msg = @_unpackServerMessage(data)
@@ -66,7 +70,12 @@ class Client extends EventEmitter
   sendEvent: (data) ->
     @_sendMessage @clientMessageFactory.event(data)
   
+  connect: ->
+    @_debug "connect"
+    @adapter.connect()
+  
   disconnect: ->
+    @_debug "disconnect"
     @adapter.disconnect()
 
   _turnComplete: (msg) ->
@@ -84,6 +93,7 @@ class Client extends EventEmitter
       turnEvents,
       f
     )
+
 
   _unpackServerMessage: (data) ->
     data

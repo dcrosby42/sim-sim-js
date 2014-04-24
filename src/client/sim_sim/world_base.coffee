@@ -13,5 +13,9 @@ class WorldBase
     throw new Error("Please implement WorldBase#incomingEvent")
   step: (dt) ->
     throw new Error("Please implement WorldBase#step")
+  theEnd: ->
+    console.log "SimSim WorldBase: theEnd.  Override this method in your World class to silence this message and handle this event."
+    
+
 
 module.exports = WorldBase

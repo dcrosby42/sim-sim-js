@@ -1,6 +1,11 @@
 fixFloat = require('./fix_float.coffee')
 
 class Simulation
+  _reset: ->
+    @lastTurnTime = 0
+    @currentTurnNumber = null
+    @simState = null
+
   constructor: (
       @world
       @client
@@ -9,19 +14,18 @@ class Simulation
       @simulationStateSerializer
       @userEventSerializer
     ) ->
-    @lastTurnTime = 0
-    @currentTurnNumber = null
     @_debugOn = false
+    @_reset()
 
-  worldState: ->
-    @world
+  start: ->
+    @_reset()
+    @client.connect()
+
+  stop: ->
+    @client.disconnect()
 
   clientId: ->
     @client.clientId
-
-  quit: ->
-    @client.disconnect()
-    @simState = null
 
   worldProxy: (method, args...) ->
     @sendEvent
@@ -82,8 +86,8 @@ class Simulation
           gameEvent.gamestateClosure(packedSimState,@world.getData())
 
         when 'GameEvent::Disconnected'
-          @simState = null
-          # TODO: notify users of the simulation that we've been disconnected
+          @_reset()
+          @world.theEnd()
 
   _debug: (args...) ->
     console.log "[Simulation]", args if @_debugOn
