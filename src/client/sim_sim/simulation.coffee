@@ -22,7 +22,9 @@ class Simulation
     @client.connect()
 
   stop: ->
-    @client.disconnect()
+    @client.disconnect =>
+      @_beDisconnected()
+
 
   clientId: ->
     @client.clientId
@@ -74,6 +76,7 @@ class Simulation
           gameEvent.checksumClosure @world.getChecksum()
 
         when 'GameEvent::StartGame'
+          @_debug 'GameEvent::StartGame', gameEvent
           @ourId = gameEvent.ourId
           @currentTurnNumber = gameEvent.currentTurn
           @simState = @simulationStateSerializer.unpackSimulationState(gameEvent.simState)
@@ -81,13 +84,18 @@ class Simulation
           console.log "GameEvent::StartGame. ourId=#{@ourId} currentTurnNumber=#{@currentTurnNumber} simState=",@simState, "worldState=", gameEvent.worldState
 
         when 'GameEvent::GamestateRequest'
+          @_debug 'GameEvent::GameStateRequest', gameEvent
           @simState ||= @simulationStateFactory.createSimulationState()
           packedSimState = @simulationStateSerializer.packSimulationState(@simState)
           gameEvent.gamestateClosure(packedSimState,@world.getData())
 
         when 'GameEvent::Disconnected'
-          @_reset()
-          @world.theEnd()
+          @_debug 'GameEvent::Disconnected', gameEvent
+          @_beDisconnected()
+
+  _beDisconnected: ->
+    @_reset()
+    @world.theEnd()
 
   _debug: (args...) ->
     console.log "[Simulation]", args if @_debugOn

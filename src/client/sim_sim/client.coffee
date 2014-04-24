@@ -14,8 +14,12 @@ class Client extends EventEmitter
 
     @adapter.on 'ClientAdapter::Disconnected', =>
       @_debug "rec'd ClientAdapter::Disconnected"
-      @gameEventsBuffer.push @gameEventFactory.disconnected()
-      @_reset()
+      if @_disconnectCallback
+        callback = @_disconnectCallback
+        @_disconnectCallback = null
+        callback()
+      else
+        @gameEventsBuffer.push @gameEventFactory.disconnected()
 
     @adapter.on 'ClientAdapter::Packet', (data) =>
       msg = @_unpackServerMessage(data)
@@ -72,10 +76,12 @@ class Client extends EventEmitter
   
   connect: ->
     @_debug "connect"
+    @_reset()
     @adapter.connect()
   
-  disconnect: ->
+  disconnect: (callback=null) ->
     @_debug "disconnect"
+    @_disconnectCallback = callback
     @adapter.disconnect()
 
   _turnComplete: (msg) ->
