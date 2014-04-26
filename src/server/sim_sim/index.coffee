@@ -14,13 +14,16 @@ createServer = (opts={}) ->
   TurnManager           = require './lib/turn_manager'
   ServerMessageFactory  = require './lib/server_message_factory'
   SyncManager           = require './lib/sync_manager'
+  LoggingConfig         = require './lib/logging_config'
   Server                = require './lib/server'
   period = opts.period || 100
   adapter = opts.adapter || throw new Error("adapter required")
   turnManager = opts.turnManager || new TurnManager(period)
   serverMessageFactory = opts.serverMessageFactory || new ServerMessageFactory()
   syncManager = opts.syncManager || new SyncManager()
-  server = new Server(adapter, turnManager, serverMessageFactory, syncManager)
+  loggingConfig = new LoggingConfig(opts.logging)
+
+  server = new Server(adapter, turnManager, serverMessageFactory, syncManager, loggingConfig)
   server
   
 createSocketIOServerAdapter = (socketIO) ->
