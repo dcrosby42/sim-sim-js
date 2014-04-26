@@ -31,6 +31,19 @@ The server is generic, and simply generates turn pacining and brokers event deli
     var simultSimServer = simSim.create.socketIOServer(
         socketIO: socketIO,
         period: 100
+        logging:
+          debug: true
+          incomingMessages: true
+          outgoingMessages: true
+          suppressTurnMessages: true
+
+console.log "SimSim logging config:\n",logging
+
+simultSimServer = simSim.create.socketIOServer(
+  socketIO: socketIO
+  period: 100
+  logging: logging
+)
     );
     ...
     expressApp.use("/sim_sim", express.static(simSim.clientAssets));
