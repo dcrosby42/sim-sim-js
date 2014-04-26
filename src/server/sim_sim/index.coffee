@@ -21,7 +21,10 @@ createServer = (opts={}) ->
   turnManager = opts.turnManager || new TurnManager(period)
   serverMessageFactory = opts.serverMessageFactory || new ServerMessageFactory()
   syncManager = opts.syncManager || new SyncManager()
-  loggingConfig = new LoggingConfig(opts.logging)
+  loggingConfig = if opts.logging
+                    new LoggingConfig(opts.logging)
+                  else
+                    new LoggingConfig({"off":true})
 
   server = new Server(adapter, turnManager, serverMessageFactory, syncManager, loggingConfig)
   server

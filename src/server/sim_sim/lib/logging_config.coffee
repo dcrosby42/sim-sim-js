@@ -1,22 +1,20 @@
 class LoggingConfig
-  constructor: ({@debug, @incomingMessages, @outgoingMessages, @suppressTurnMessages, @filters}) ->
-    @filters ||= []
-    @filters.push (args...) =>
-      !(@suppressTurnMessages and args[0].match(/turn/i))
+  constructor: ({@debug, @incomingMessages, @outgoingMessages, @suppressTurnMessages, @filters,@off}) ->
+    unless @off
+      @filters ||= []
+      @filters.push (args...) =>
+        !(@suppressTurnMessages and args[0].match(/turn/i))
 
   addFilter: (filter) ->
+    return if @off
     @filters.push(filter)
 
   allowMessage: (args...) ->
+    return false if @off
     for f in @filters
       if !f(args...)
         return false
     return true
 
-  # allowMessageType: (type,args...) ->
-  #   if @suppressTurnMessages and type.match(/turn/i)
-  #     false
-  #   else
-  #     true
 
 module.exports = LoggingConfig
