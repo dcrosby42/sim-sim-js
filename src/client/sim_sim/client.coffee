@@ -24,6 +24,8 @@ class Client extends EventEmitter
     @adapter.on 'ClientAdapter::Packet', (data) =>
       msg = @_unpackServerMessage(data)
       @_debug "rec'd ClientAdapter::Packet", msg unless msg.type == 'ServerMessage::TurnComplete'
+      @_debugIncomingMessage msg
+
       switch msg.type
         when 'ServerMessage::IdAssigned'
           @clientId = msg.ourId
@@ -115,10 +117,17 @@ class Client extends EventEmitter
 
   _sendMessage: (msg) ->
     @_debug "_sendMessage", msg unless msg.type == 'ClientMsg::TurnFinished'
+    @_debugOutgoingMessage msg
     @adapter.send @_packClientMessage(msg)
 
   _debug: (args...) ->
     console.log "[Client]", args... if @_debugOn
+
+  _debugIncomingMessage: (msg) ->
+    @emit 'incomingMessage', msg
+
+  _debugOutgoingMessage: (msg) ->
+    @emit 'outgoingMessage', msg
 
 
 module.exports = Client
