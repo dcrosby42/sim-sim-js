@@ -48,21 +48,21 @@ createSimulation = (opts={}) ->
     userEventSerializer
   )
 
-  if callback = opts.adapter.spyOnDataIn
+  if callback1 = opts.adapter.spyOnDataIn
     adapter.on 'ClientAdapter::Packet', (data) ->
-      callback(simulation, data)
+      callback1(simulation, data)
 
-  if callback = opts.adapter.spyOnDataOut
+  if callback2 = opts.adapter.spyOnDataOut
     adapter.on 'ClientAdapter::SendingData', (data) ->
-      callback(simulation, data)
+      callback2(simulation, data)
 
-  if callback = opts.client.spyOnIncoming
-    client.on 'incomingMessage', (msg) ->
-      callback(simulation, msg)
+  if opts.client
+    if callback3 = opts.client.spyOnIncoming
+      client.on 'incomingMessage', (msg) -> callback3(simulation, msg)
 
-  if callback = opts.client.spyOnOutgoing
-    client.on 'outgoingMessage', (msg) ->
-      callback(simulation, msg)
+    if callback4 = opts.client.spyOnOutgoing
+      client.on 'outgoingMessage', (msg) ->
+        callback4(simulation, msg)
 
   return simulation
 
