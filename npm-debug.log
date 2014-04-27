@@ -1,0 +1,156 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/0.10.24/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish',
+1 verbose cli   'build' ]
+2 info using npm@1.3.21
+3 info using node@v0.10.24
+4 verbose publish [ 'build' ]
+5 verbose cache add [ 'build', null ]
+6 verbose cache add name=undefined spec="build" args=["build",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'build',
+7 verbose parsed url   path: 'build',
+7 verbose parsed url   href: 'build' }
+8 silly lockFile 80754af9-build build
+9 verbose lock build /Users/crosby/.npm/80754af9-build.lock
+10 verbose tar pack [ '/Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz',
+10 verbose tar pack   'build' ]
+11 verbose tarball /Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+12 verbose folder build
+13 info prepublish sim-sim-js@0.0.8
+14 silly lockFile db5783bd-tar-build tar://build
+15 verbose lock tar://build /Users/crosby/.npm/db5783bd-tar-build.lock
+16 silly lockFile a904e2b2-9824-0-38019640231505036-tmp-tgz tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+17 verbose lock tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz /Users/crosby/.npm/a904e2b2-9824-0-38019640231505036-tmp-tgz.lock
+18 silly lockFile db5783bd-tar-build tar://build
+19 silly lockFile db5783bd-tar-build tar://build
+20 silly lockFile a904e2b2-9824-0-38019640231505036-tmp-tgz tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+21 silly lockFile a904e2b2-9824-0-38019640231505036-tmp-tgz tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+22 verbose tar unpack /Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+23 silly lockFile c7e06206-9824-0-38019640231505036-package tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+24 verbose lock tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package /Users/crosby/.npm/c7e06206-9824-0-38019640231505036-package.lock
+25 silly lockFile a904e2b2-9824-0-38019640231505036-tmp-tgz tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+26 verbose lock tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz /Users/crosby/.npm/a904e2b2-9824-0-38019640231505036-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm extractEntry README.md
+30 silly gunzTarPerm extractEntry LICENSE
+31 silly gunzTarPerm extractEntry index.js
+32 silly gunzTarPerm extractEntry client/sim_sim.js
+33 silly gunzTarPerm extractEntry lib/logging_config.js
+34 silly gunzTarPerm extractEntry lib/server.js
+35 silly gunzTarPerm extractEntry lib/server_message_factory.js
+36 silly gunzTarPerm extractEntry lib/socket_io_server_adapter.js
+37 silly gunzTarPerm extractEntry lib/sync_manager.js
+38 silly gunzTarPerm extractEntry lib/timer.js
+39 silly gunzTarPerm extractEntry lib/turn_manager.js
+40 silly lockFile c7e06206-9824-0-38019640231505036-package tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+41 silly lockFile c7e06206-9824-0-38019640231505036-package tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+42 silly lockFile a904e2b2-9824-0-38019640231505036-tmp-tgz tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+43 silly lockFile a904e2b2-9824-0-38019640231505036-tmp-tgz tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/tmp.tgz
+44 verbose tar pack [ '/Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz',
+44 verbose tar pack   '/Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package' ]
+45 verbose tarball /Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+46 verbose folder /Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+47 silly lockFile c7e06206-9824-0-38019640231505036-package tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+48 verbose lock tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package /Users/crosby/.npm/c7e06206-9824-0-38019640231505036-package.lock
+49 silly lockFile 3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+50 verbose lock tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz /Users/crosby/.npm/3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz.lock
+51 silly lockFile c7e06206-9824-0-38019640231505036-package tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+52 silly lockFile c7e06206-9824-0-38019640231505036-package tar:///Users/crosby/tmp/npm-12640-Gy4Td_h7/1398563049824-0.38019640231505036/package
+53 silly lockFile 3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+54 silly lockFile 3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+55 silly lockFile 8f7f0fde-sby-npm-sim-sim-js-0-0-8-package /Users/crosby/.npm/sim-sim-js/0.0.8/package
+56 verbose lock /Users/crosby/.npm/sim-sim-js/0.0.8/package /Users/crosby/.npm/8f7f0fde-sby-npm-sim-sim-js-0-0-8-package.lock
+57 silly lockFile 8f7f0fde-sby-npm-sim-sim-js-0-0-8-package /Users/crosby/.npm/sim-sim-js/0.0.8/package
+58 silly lockFile 8f7f0fde-sby-npm-sim-sim-js-0-0-8-package /Users/crosby/.npm/sim-sim-js/0.0.8/package
+59 verbose tar unpack /Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+60 silly lockFile 9c6950d0-sby-npm-sim-sim-js-0-0-8-package tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package
+61 verbose lock tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package /Users/crosby/.npm/9c6950d0-sby-npm-sim-sim-js-0-0-8-package.lock
+62 silly lockFile 3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+63 verbose lock tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz /Users/crosby/.npm/3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz.lock
+64 silly gunzTarPerm modes [ '755', '644' ]
+65 silly gunzTarPerm extractEntry package.json
+66 silly gunzTarPerm extractEntry README.md
+67 silly gunzTarPerm extractEntry LICENSE
+68 silly gunzTarPerm extractEntry index.js
+69 silly gunzTarPerm extractEntry client/sim_sim.js
+70 silly gunzTarPerm extractEntry lib/logging_config.js
+71 silly gunzTarPerm extractEntry lib/server.js
+72 silly gunzTarPerm extractEntry lib/server_message_factory.js
+73 silly gunzTarPerm extractEntry lib/socket_io_server_adapter.js
+74 silly gunzTarPerm extractEntry lib/sync_manager.js
+75 silly gunzTarPerm extractEntry lib/timer.js
+76 silly gunzTarPerm extractEntry lib/turn_manager.js
+77 silly lockFile 9c6950d0-sby-npm-sim-sim-js-0-0-8-package tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package
+78 silly lockFile 9c6950d0-sby-npm-sim-sim-js-0-0-8-package tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package
+79 silly lockFile 3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+80 silly lockFile 3d5d58cd-npm-sim-sim-js-0-0-8-package-tgz tar:///Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz
+81 verbose chmod /Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz 644
+82 verbose chown /Users/crosby/.npm/sim-sim-js/0.0.8/package.tgz [ 501, 20 ]
+83 silly lockFile 80754af9-build build
+84 silly lockFile 80754af9-build build
+85 silly publish { name: 'sim-sim-js',
+85 silly publish   author: { name: 'Dave Crosby, Job Vranish' },
+85 silly publish   description: 'Croz\'s port of Job\'s Simultanous Simulation library',
+85 silly publish   license: 'MIT',
+85 silly publish   version: '0.0.8',
+85 silly publish   repository: { type: 'git', url: 'git@github.com:dcrosby42/sim-sim-js.git' },
+85 silly publish   readme: 'https://github.com/dcrosby42/sim-sim-js/blob/master/README.md',
+85 silly publish   engine: { node: '0.10.x' },
+85 silly publish   devDependencies:
+85 silly publish    { grunt: '~0.4.4',
+85 silly publish      'grunt-shell': '~0.6.4',
+85 silly publish      'grunt-contrib-coffee': '~0.10.1',
+85 silly publish      'grunt-contrib-watch': '~0.6.0',
+85 silly publish      'jasmine-node': '~1.14.2',
+85 silly publish      'grunt-jasmine-node': '~0.2.1',
+85 silly publish      browserify: '~3.33.0',
+85 silly publish      coffeeify: '~0.6.0',
+85 silly publish      'coffee-script': '~1.7.1' },
+85 silly publish   dependencies: {},
+85 silly publish   bugs: { url: 'https://github.com/dcrosby42/sim-sim-js/issues' },
+85 silly publish   homepage: 'https://github.com/dcrosby42/sim-sim-js',
+85 silly publish   _id: 'sim-sim-js@0.0.8',
+85 silly publish   dist: { shasum: 'e9fdac41ee832680145ed0faefc87648355f8511' },
+85 silly publish   _from: 'build' }
+86 verbose url raw sim-sim-js
+87 verbose url resolving [ 'https://registry.npmjs.org/', './sim-sim-js' ]
+88 verbose url resolved https://registry.npmjs.org/sim-sim-js
+89 info trying registry request attempt 1 at 21:44:09
+90 http PUT https://registry.npmjs.org/sim-sim-js
+91 http 403 https://registry.npmjs.org/sim-sim-js
+92 info trying registry request attempt 1 at 21:44:11
+93 http PUT https://registry.npmjs.org/sim-sim-js
+94 http 403 https://registry.npmjs.org/sim-sim-js
+95 error publish Failed PUT 403
+96 error Error: forbidden cannot modify pre-existing version: 0.0.8
+96 error old={"name":"sim-sim-js","author":{"name":"Dave Crosby, Job Vranish"},"description":"Croz's port of Job's Simultanous Simulation library","license":"MIT","version":"0.0.8","repository":{"type":"git","url":"git@github.com:dcrosby42/sim-sim-js.git"},"engine":{"node":"0.10.x"},"devDependencies":{"grunt":"~0.4.4","grunt-shell":"~0.6.4","grunt-contrib-coffee":"~0.10.1","grunt-contrib-watch":"~0.6.0","jasmine-node":"~1.14.2","grunt-jasmine-node":"~0.2.1","browserify":"~3.33.0","coffeeify":"~0.6.0","coffee-script":"~1.7.1"},"dependencies":{},"bugs":{"url":"https://github.com/dcrosby42/sim-sim-js/issues"},"homepage":"https://github.com/dcrosby42/sim-sim-js","_id":"sim-sim-js@0.0.8","dist":{"shasum":"460f1fac2d8f723c02543a8a1e5107ee2a101a2e","tarball":"http://registry.npmjs.org/sim-sim-js/-/sim-sim-js-0.0.8.tgz"},"_from":"build","_npmVersion":"1.3.21","_npmUser":{"name":"dcrosby42","email":"dcrosby42@gmail.com"},"maintainers":[{"name":"dcrosby42","email":"dcrosby42@gmail.com"}]}
+96 error new={"name":"sim-sim-js","author":{"name":"Dave Crosby, Job Vranish"},"description":"Croz's port of Job's Simultanous Simulation library","license":"MIT","version":"0.0.8","repository":{"type":"git","url":"git@github.com:dcrosby42/sim-sim-js.git"},"readme":"https://github.com/dcrosby42/sim-sim-js/blob/master/README.md","engine":{"node":"0.10.x"},"devDependencies":{"grunt":"~0.4.4","grunt-shell":"~0.6.4","grunt-contrib-coffee":"~0.10.1","grunt-contrib-watch":"~0.6.0","jasmine-node":"~1.14.2","grunt-jasmine-node":"~0.2.1","browserify":"~3.33.0","coffeeify":"~0.6.0","coffee-script":"~1.7.1"},"dependencies":{},"bugs":{"url":"https://github.com/dcrosby42/sim-sim-js/issues"},"homepage":"https://github.com/dcrosby42/sim-sim-js","_id":"sim-sim-js@0.0.8","dist":{"shasum":"e9fdac41ee832680145ed0faefc87648355f8511","tarball":"http://registry.npmjs.org/sim-sim-js/-/sim-sim-js-0.0.8.tgz"},"_from":"build","_npmVersion":"1.3.21","_npmUser":{"name":"dcrosby42","email":"dcrosby42@gmail.com"},"maintainers":[{"name":"dcrosby42","email":"dcrosby42@gmail.com"}]}: sim-sim-js
+96 error     at RegClient.<anonymous> (/usr/local/Cellar/node/0.10.24/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:275:14)
+96 error     at Request.self.callback (/usr/local/Cellar/node/0.10.24/lib/node_modules/npm/node_modules/request/request.js:123:22)
+96 error     at Request.EventEmitter.emit (events.js:98:17)
+96 error     at Request.<anonymous> (/usr/local/Cellar/node/0.10.24/lib/node_modules/npm/node_modules/request/request.js:893:14)
+96 error     at Request.EventEmitter.emit (events.js:117:20)
+96 error     at IncomingMessage.<anonymous> (/usr/local/Cellar/node/0.10.24/lib/node_modules/npm/node_modules/request/request.js:844:12)
+96 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+96 error     at _stream_readable.js:920:16
+96 error     at process._tickCallback (node.js:415:13)
+97 error If you need help, you may report this *entire* log,
+97 error including the npm and node versions, at:
+97 error     <http://github.com/isaacs/npm/issues>
+98 error System Darwin 13.1.0
+99 error command "/usr/local/Cellar/node/0.10.24/bin/node" "/usr/local/bin/npm" "publish" "build"
+100 error cwd /Users/crosby/git/sim-sim-js
+101 error node -v v0.10.24
+102 error npm -v 1.3.21
+103 verbose exit [ 1, true ]
