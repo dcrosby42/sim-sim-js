@@ -95,5 +95,6 @@ exports.createSimulation = createSimulation
 exports.Util = { fixFloat: require('./fix_float.coffee') }
 
 exports.WorldBase = require('./world_base.coffee')
+exports.EventEmitter = require('./event_emitter.coffee')
 
 exports.addAdapter = addAdapterConstructor
