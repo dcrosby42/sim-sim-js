@@ -3,7 +3,7 @@
   "author": "Dave Crosby, Job Vranish",
   "description": "Croz's port of Job's Simultanous Simulation library",
   "license": "MIT",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "repository": "git@github.com:dcrosby42/sim-sim-js.git",
   "readme": "https://github.com/dcrosby42/sim-sim-js/blob/master/README.md",
   "engine": {
